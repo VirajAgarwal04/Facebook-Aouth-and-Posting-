@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post to Facebook Page</title>
+</head>
+<body>
+    <h1>Post to Facebook Page</h1>
+    
+    <button id="postButton">Post on Facebook</button>
+
+    <script>
+        // Function to handle button click event
+        async function postToFacebook() {
+            try {
+
+                // Make a POST request to your '/post' endpoint
+                const response = await fetch('/post', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                // Check if the request was successful
+                if (response.ok) {
+                    // Parse the JSON response
+                    const data = await response.json();
+                    // Log or handle the response data as needed
+                    console.log('Post successful:', data);
+                    alert('Post successful!');
+                } else {
+                    // Log the error message if request failed
+                    console.error('Error posting to Facebook:', response.statusText);
+                    alert('Failed to post to Facebook. Please try again later.');
+                }
+            } catch (error) {
+                // Log any unexpected errors
+                console.error('Error posting to Facebook:', error);
+                alert('An unexpected error occurred. Please try again later.');
+            }
+        }
+
+        // Add a click event listener to the button
+        document.getElementById('postButton').addEventListener('click', postToFacebook);
+    </script>
+</body>
+</html>
