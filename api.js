@@ -19,8 +19,8 @@ app.use(session({
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-const FACEBOOK_APP_ID = '1435196120720019';
-const FACEBOOK_APP_SECRET = '42dfd79809c0d27f21c3b0e5c508a489';
+const FACEBOOK_APP_ID = 'Your-App-ID';
+const FACEBOOK_APP_SECRET = 'Your-App-Secret';
 const FACEBOOK_CALLBACK_URL = 'http://localhost:3000/auth/facebook/callback';
 
 passport.use(new FacebookStrategy({
