@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(session({
-    secret: 'a531cc04e979f4c052dfaad21a76c7f8468c14b3e6afccf013f2d9aa8c862dc5',
+    secret: 'Your_Generated_Secret_Key',
     resave: false,
     saveUninitialized: false
 }));
